@@ -2,18 +2,34 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        @foreach($products as $product)
-        <div class="col-4">
-            <div class="card" style="height: 100%;">
-                <img style="height: 200px;" class="card-img-top" src="{{$product->product_img}}" alt="Card image" style="width:100%">
-                <div class="card-body">
-                    <h4 class="card-title">{{$product->product_name}}</h4>
-                    <a href="#" class="btn btn-primary">Add To Card</a>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
+    <h2>Products</h2>
+    <a href="{{route('create')}}" class="btn btn-primary">Add New</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($products as $product)
+            <tr>
+                <td>
+                    <img src="{{$product->product_img}}" alt="product image" style="width: 150px; height:100px">
+                </td>
+                <td>{{$product->product_name}}</td>
+                <td>
+                    <a class ="btn btn-warning" href="{{route('edit', $product->product_id)}}">Edit</a><br><br>
+                    <form action="{{ route('destroy' , $product->product_id) }}" method="post">
+                        @csrf
+                        {{method_field('DELETE')}}
+                        <button type="submit" class="btn btn-danger save-cancel" name="confirm_delete">delete</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 @endsection

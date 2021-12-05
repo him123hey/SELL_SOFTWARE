@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,15 +34,10 @@ Route::get('/admin_login', function () {
 // Product route
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 // Prefex route 
-// Route::prefix('products')->group(function () {
-//     Route::get('new', 'ProductController@newArrival');
-//     Route::middleware('staff:dashboard/login')->group(function () {
-//         Route::get('create', 'ProductController@create');
-//         Route::post('create', 'ProductController@store');
-//         Route::get('{id}/edit', 'ProductController@edit');
-//         Route::patch('{id}/edit', 'ProductController@update');
-//         Route::delete('{id}', 'ProductController@destroy');
-//     });
-//     Route::get('{product}', 'ProductController@index');
-//     Route::get('{id}/details/{attr1Id?}/{attr2Id?}', 'ProductController@show');
-// });
+Route::prefix('products')->group(function () {
+    Route::get('create', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
+    Route::post('store', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
+    Route::get('{id}/edit', [App\Http\Controllers\ProductController::class, 'edit'])->name('edit');
+    Route::patch('{id}/update', [App\Http\Controllers\ProductController::class, 'update'])->name('update');
+    Route::delete('/destroy/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('destroy');
+});
