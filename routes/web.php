@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,23 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// admin route
+Route::get('/admin_login', function () {
+    return view('admin/admin_login');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Product route
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+// Prefex route 
+// Route::prefix('products')->group(function () {
+//     Route::get('new', 'ProductController@newArrival');
+//     Route::middleware('staff:dashboard/login')->group(function () {
+//         Route::get('create', 'ProductController@create');
+//         Route::post('create', 'ProductController@store');
+//         Route::get('{id}/edit', 'ProductController@edit');
+//         Route::patch('{id}/edit', 'ProductController@update');
+//         Route::delete('{id}', 'ProductController@destroy');
+//     });
+//     Route::get('{product}', 'ProductController@index');
+//     Route::get('{id}/details/{attr1Id?}/{attr2Id?}', 'ProductController@show');
+// });
