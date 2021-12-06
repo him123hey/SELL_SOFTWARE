@@ -30,3 +30,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin_login', function () {
     return view('admin/admin_login');
 });
+
+// Product route
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+// Prefex route 
+Route::prefix('products')->group(function () {
+    Route::get('create', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
+    Route::post('store', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
+    Route::get('{id}/edit', [App\Http\Controllers\ProductController::class, 'edit'])->name('edit');
+    Route::patch('{id}/update', [App\Http\Controllers\ProductController::class, 'update'])->name('update');
+    Route::delete('/destroy/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('destroy');
+});
