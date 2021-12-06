@@ -30,4 +30,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin_login', function () {
     return view('admin/admin_login');
 });
-
