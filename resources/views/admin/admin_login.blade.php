@@ -27,7 +27,7 @@
                     <h3>Admin Login</h3>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{route('admin')}}">
                         <div class="form-group mt-2">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" class="form-control" required>
