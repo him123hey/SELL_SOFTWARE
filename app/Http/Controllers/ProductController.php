@@ -18,6 +18,11 @@ class ProductController extends Controller
         $products = Product::all();
         return view('admin.products.index', compact('products'));
     }
+    public function productList()
+    {
+        $products = Product::all();
+        return $products;
+    }
 
     /**
      * Show the form for creating a new resource.
