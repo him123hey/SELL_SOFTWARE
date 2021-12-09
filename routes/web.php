@@ -41,3 +41,7 @@ Route::prefix('products')->group(function () {
     Route::patch('{id}/update', [App\Http\Controllers\ProductController::class, 'update'])->name('update');
     Route::delete('/destroy/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('destroy');
 });
+
+
+// Api get product
+Route::get('/product_api', [App\Http\Controllers\ProductController::class, 'productList'])->name('product');
