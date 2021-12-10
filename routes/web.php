@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin_login', function () {
     return view('admin/admin_login');
 });
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'checklogin'])->name('admin');
 
 // Product route
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
