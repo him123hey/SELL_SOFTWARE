@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin_login', function () {
     return view('admin/admin_login');
 });
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'checklogin'])->name('admin');
 
 // Product route
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
@@ -41,7 +42,6 @@ Route::prefix('products')->group(function () {
     Route::patch('{id}/update', [App\Http\Controllers\ProductController::class, 'update'])->name('update');
     Route::delete('/destroy/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('destroy');
 });
-
 // send mail to admin
 Route::get('send-mail', function () {
    
@@ -55,3 +55,5 @@ Route::get('send-mail', function () {
     dd("Email is Sent.");
 
 });
+// Api get product
+Route::get('/product_api', [App\Http\Controllers\ProductController::class, 'productList'])->name('product');

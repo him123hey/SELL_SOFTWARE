@@ -19,14 +19,17 @@ class ProductSeeder extends Seeder
             [
                 'product_name' => 'product1',
                 'product_img' => 'images/software1.jpeg',
+                'product_des' => 'This is my description',
             ],
             [
                 'product_name' => 'product2',
                 'product_img' => 'images/software2.png',
+                'product_des' => 'This is my description',
             ],
             [
                 'product_name' => 'product3',
                 'product_img' => 'images/software3.jpeg',
+                'product_des' => 'This is my description',
             ],
         ];
 
