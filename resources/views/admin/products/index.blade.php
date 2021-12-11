@@ -10,6 +10,7 @@
             <tr>
                 <th>Image</th>
                 <th>Product Name</th>
+                <th>Product Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,13 +21,20 @@
                     <img src="{{$product->product_img}}" alt="product image" style="width: 150px; height:100px">
                 </td>
                 <td>{{$product->product_name}}</td>
+                <td>{{$product->product_des}}</td>
                 <td>
-                    <a class ="btn btn-warning" href="{{route('edit', $product->product_id)}}">Edit</a><br><br>
-                    <form action="{{ route('destroy' , $product->product_id) }}" method="post">
-                        @csrf
-                        {{method_field('DELETE')}}
-                        <button type="submit" class="btn btn-danger save-cancel" name="confirm_delete">delete</button>
-                    </form>
+                    <div class="row">
+                        <div class="col" style="margin-right:-50%">
+                            <a class ="btn btn-warning" href="{{route('edit', $product->product_id)}}">Edit</a>
+                        </div>
+                        <div class="col">
+                            <form action="{{ route('destroy' , $product->product_id) }}" method="post">
+                                @csrf
+                                {{method_field('DELETE')}}
+                                <button type="submit" class="btn btn-danger save-cancel" name="confirm_delete">delete</button>
+                            </form>
+                        </div>
+                    </div>
                 </td>
             </tr>
             @endforeach

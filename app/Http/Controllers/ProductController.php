@@ -105,6 +105,7 @@ class ProductController extends Controller
         }
         $product = Product::find($id);
         $product->product_name = $request->input('product_name');
+        $product->product_des = $request->input('product_des');
         $product->product_img = $product_img;
         $product->save();
         return redirect()->route('product');

@@ -11,6 +11,10 @@
         <div class="form-group">
             <label for="product_img">Product Image:</label>
             <input type="file" name="product_img" class="form-control" placeholder="Product Image">
+        </div>
+        <div class="form-group">
+            <label for="product_des">Product Description:</label>
+            <textarea class="form-control" name="product_des" id="product_des" cols="10" rows="5"></textarea>
         </div><br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
