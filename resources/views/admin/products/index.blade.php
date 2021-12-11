@@ -5,6 +5,7 @@
     @if (Auth::user()->role_id == 1)
     <h2>Products</h2>
     <a href="{{route('create')}}" class="btn btn-primary">Add New</a>
+    <a href="{{url('send-mail')}}" class="btn btn-xs btn-info pull-right">Send Mail</a>
     <table class="table table-striped">
         <thead>
             <tr>

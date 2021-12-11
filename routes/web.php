@@ -42,7 +42,18 @@ Route::prefix('products')->group(function () {
     Route::patch('{id}/update', [App\Http\Controllers\ProductController::class, 'update'])->name('update');
     Route::delete('/destroy/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('destroy');
 });
+// send mail to admin
+Route::get('send-mail', function () {
+   
+    $details = [
+        'title' => 'Customer request to buy Software!',
+        'body' => 'This is for testing email using smtp'
+    ];
+   
+    \Mail::to('sellsoftware9@gmail.com')->send(new \App\Mail\MyMail($details));
+   
+    dd("Email is Sent.");
 
-
+});
 // Api get product
 Route::get('/product_api', [App\Http\Controllers\ProductController::class, 'productList'])->name('product');
