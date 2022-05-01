@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         @foreach($products as $product)
-        <div class="col-4">
+        <div class="col-4 mt-2">
             <div class="card" style="height: 100%;">
                 <img style="height: 200px;" class="card-img-top" src="{{$product->product_img}}" alt="Card image" style="width:100%">
                 <div class="card-body">
