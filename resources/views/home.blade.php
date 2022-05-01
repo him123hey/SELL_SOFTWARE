@@ -12,8 +12,6 @@
                     <h4 class="card-title">${{$product->product_price}}</h4>
                     <p>{{$product->product_des}}</p>
                     <a href="#" class="btn btn-primary">Add To Card</a>
-
-                 {{-- print("Hello how are your ?"); --}}
                 </div>
             </div>
         </div>
