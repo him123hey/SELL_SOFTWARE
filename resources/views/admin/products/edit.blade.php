@@ -10,6 +10,10 @@
             <input type="text" value="{{$product->product_name}}" name="product_name" class="form-control" placeholder="Product Name" required>
         </div><br>
         <div class="form-group">
+            <label for="product_name">Product Price:</label>
+            <input type="text" value="{{$product->product_price}}" name="product_price" class="form-control" placeholder="Product Price" required>
+        </div><br>
+        <div class="form-group">
             <label for="product_img">Product Image:</label>
             <img src="/{{$product->product_img}}" alt="product image" style="width: 150px; height:100px"><br><br>
             <input type="file" product name="product_img" class="form-control" placeholder="Product Image">

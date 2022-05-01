@@ -31,9 +31,19 @@ Route::get('/admin_login', function () {
     return view('admin/admin_login');
 });
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'checklogin'])->name('admin');
-
+// Category route 
+Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
+// Prefex route 
+Route::prefix('categories')->group(function () {
+    Route::get('create', [App\Http\Controllers\CategoryController::class, 'create'])->name('categories.create');
+    Route::post('store', [App\Http\Controllers\CategoryController::class, 'store'])->name('categories.store');
+    Route::get('{id}/edit', [App\Http\Controllers\CategoryController::class, 'edit'])->name('edit');
+    Route::patch('{id}/update', [App\Http\Controllers\CategoryController::class, 'update'])->name('update');
+    Route::delete('/destroy/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('destroy');
+});
 // Product route
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+
 // Prefex route 
 Route::prefix('products')->group(function () {
     Route::get('create', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
@@ -56,4 +66,4 @@ Route::get('send-mail', function () {
 
 });
 // Api get product
-Route::get('/product_api', [App\Http\Controllers\ProductController::class, 'productList'])->name('product');
+// Route::get('/product_api', [App\Http\Controllers\ProductController::class, 'productList'])->name('product');

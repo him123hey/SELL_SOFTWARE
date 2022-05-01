@@ -4,6 +4,7 @@
 <div class="container">
     @if (Auth::user()->role_id == 1)
     <h2>Products</h2>
+    <a href="{{route('category')}}" class="btn btn-primary">Category</a>
     <a href="{{route('create')}}" class="btn btn-primary">Add New</a>
     <a href="{{url('send-mail')}}" class="btn btn-xs btn-info pull-right">Send Mail</a>
     <table class="table table-striped">
@@ -11,6 +12,7 @@
             <tr>
                 <th>Image</th>
                 <th>Product Name</th>
+                <th>Product Price</th>
                 <th>Product Description</th>
                 <th>Actions</th>
             </tr>
@@ -22,6 +24,7 @@
                     <img src="{{$product->product_img}}" alt="product image" style="width: 150px; height:100px">
                 </td>
                 <td>{{$product->product_name}}</td>
+                <td>{{$product->product_price}}</td>
                 <td>{{$product->product_des}}</td>
                 <td>
                     <div class="row">
